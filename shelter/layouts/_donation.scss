@@ -1,0 +1,100 @@
+.donation {
+    background-color: $extra-bg-color;
+    & .donation__container {
+        max-width: 995px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: 30px;
+        margin: 0 auto;
+        padding-top: 80px;
+        padding-bottom: 100px;
+    }
+    & .donation__img-wrapper {
+        max-width: 505px;
+    }
+    & .donation__content {
+        max-width: 380px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 20px;
+    }
+    & .donation__text {
+        display: block;
+        font: {
+            family: $title-font;
+            size: 0.9375rem;
+        }
+        line-height: 1.1em;
+        letter-spacing: 0.06em;
+    }
+    & .donation__link {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        &:hover {
+            cursor: url('./assets/img/icon.svg'), pointer;
+            & .donation__info {
+                background-position: left;
+            }
+            & .donation__icon path {
+                fill: $font-color-logo-dark;
+            }
+            & .donation__number {
+                color: $font-color-logo-dark;
+            }
+        }
+    }
+    & .donation__info {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+        background: linear-gradient(to left, $primary-color 50%, $primary-color-light 50%) right;
+        background-size: 200%;
+        padding: 10px 15px;
+        border-radius: 9px;
+        overflow: hidden;
+        transition: background 0.5s ease-in;
+    }
+    & .donation__icon {
+        flex-shrink: 0;
+    }
+}
+@media screen and (max-width: 992px) {
+    .donation {
+        & .donation__container {
+            flex-direction: column-reverse;
+            row-gap: 60px;
+        }
+    }
+}
+@media screen and (max-width: 390px) {
+    .donation {
+        & .donation__container {
+            max-width: 320px;
+            padding: 42px 20px;
+            flex-direction: column-reverse;
+            align-items: center;
+            row-gap: 42px;
+        }
+        & .donation__img-wrapper {
+            max-width: 260px;
+        }
+        & .donation__content {
+            width: 100%;
+            row-gap: 23px;
+            align-items: center;
+        }
+        & .donation__text {
+            letter-spacing: 0;
+        }
+        & .donation__link {
+            max-width: 281px;
+        }
+        & .note {
+            text-align: justify;
+        }
+    }
+}

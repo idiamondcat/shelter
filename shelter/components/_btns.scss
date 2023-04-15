@@ -1,0 +1,82 @@
+.btn {
+    display: inline-flex;
+    text-decoration: none;
+    padding: 0.882em 2.6470588235294117em;
+    background: linear-gradient(to left, $primary-color 50%, $primary-color-light 50%) right;
+    background-size: 200%;
+    color: $font-color-logo-dark;
+    border-radius: 1.7647058823529411em;
+    font-family: $title-font;
+    font-size: 1.063rem;
+    line-height: 1.2411764705882353em;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    transition: background 0.5s ease-in;
+    &:hover  {
+        cursor: url('./assets/img/icon.svg'), pointer;
+        background-position: left;
+    }
+    &:focus, &:active {
+        cursor: url('./assets/img/icon.svg'), pointer;
+        box-shadow: none;
+        outline: none;
+    }
+    &:visited {
+        color: $font-color-logo-dark;
+    }
+}
+
+.second-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.7647058823529411em 2.5294117647058822em;
+    background: linear-gradient(to left, transparent 50%, $primary-color-light 50%) right;
+    background-size: 200%;
+    color: $font-color-logo-dark;
+    border: 2px solid $primary-color;
+    border-radius: 5.882352941176471em;
+    font-family: $title-font;
+    font-size: 1.063rem;
+    line-height: 1.2411764705882353em;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    transition: background 0.5s ease-in;
+    &:hover {
+        cursor: url('./assets/img/icon.svg'), pointer;
+        background-position: left;
+    }
+    &:active, &:focus {
+        cursor: url('./assets/img/icon.svg'), pointer;
+        box-shadow: none;
+        outline: none;
+    }
+}
+
+.round-btn {
+    width: 3.2rem;
+    height: 3.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid $primary-color;
+    border-radius: 100%;
+    background-color: transparent;
+    color: $font-color-logo-dark;
+    @include subtitle;
+    &:hover {
+        cursor: url('./assets/img/icon.svg'), pointer;
+        background-color: $primary-color-light;
+        transition: background-color 0.3s ease-in;
+    }
+    &:active, &:focus {
+        cursor: url('./assets/img/icon.svg'), pointer;
+        box-shadow: none;
+        outline: none;
+        background-color: $primary-color;
+    }
+    &:disabled {
+        pointer-events: none;
+        border-color: $font-color-darker;
+        color: $font-color-darker;
+    }
+}
