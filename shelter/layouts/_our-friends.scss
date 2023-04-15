@@ -18,10 +18,10 @@
         grid-template-rows: repeat(2, auto);
         grid-column-gap: 40px;
         grid-row-gap: 30px;
-        & .our-pets__item {
-            &:hover {
-                cursor: url('../assets/img/icon.svg'), pointer;
-            }
+    }
+    & .our-friends__item {
+        &:hover {
+            cursor: url('../assets/img/icon.svg'), pointer;
         }
     }
     & .our-friends__pagination-wrapper {

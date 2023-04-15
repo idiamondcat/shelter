@@ -45,6 +45,9 @@
         }
     }
     & .our-pets__item {
+        &:hover {
+            cursor: url('./assets/img/icon.svg'), pointer;
+        }
         flex-shrink: 0;
     }
     & .our-pets__btn {
@@ -115,7 +118,7 @@
             from {
                 left: -620px;
             } to {
-                left: -1280px;
+                left: -1240px;
             }
         }
         @keyframes move-left {
@@ -144,12 +147,13 @@
             overflow: hidden;
         }
         & .our-pets__slider-extra-wrapper {
-            max-width: 290px;
+            max-width: 270px;
             padding-top: 0;
             padding-bottom: 0;
         }
         .our-pets__slider {
-            left: -290px;
+            left: -295px;
+            column-gap: 25px;
         }
         .our-pets__btn {
             &:first-child {
@@ -161,14 +165,14 @@
         }
         @keyframes move-right {
             from {
-                left: -290px;
+                left: -295px;
             } to {
-                left: -580px;
+                left: -590px;
             }
         }
         @keyframes move-left {
             from {
-                left: -290px;
+                left: -295px;
             } to {
                 left: 0;
             }

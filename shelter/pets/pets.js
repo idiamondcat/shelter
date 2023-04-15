@@ -103,7 +103,8 @@ let petsCount;
 const body = document.querySelector('body');
 const burgerBtn = document.querySelector('.nav__btn');
 const overlay = document.querySelector('.overlay');
-const links = Array.from(document.querySelectorAll('.nav__item'));
+const linksContainer = document.querySelector('.nav__list');
+const links = linksContainer.getElementsByClassName('nav__item');
 const popupOverlay = document.querySelector('.pop-up-overlay');
 const popUpContainer = document.querySelector('.pop-up');
 const petsContainer = document.querySelector('.our-friends__list');
@@ -115,31 +116,47 @@ const lastPageBtn = document.querySelector('.last-page');
 
 // Burger
 const openMenu = () => {
-    burgerBtn.classList.toggle('nav__btn--active');
-    body.classList.toggle('stop-scroll');
-    overlay.classList.toggle('overlay--off');
+  burgerBtn.classList.toggle('nav__btn--active');
+  body.classList.toggle('stop-scroll');
+  overlay.classList.toggle('overlay--off');
 }
-burgerBtn.addEventListener('click', (evt) => {
-evt.preventDefault();
+burgerBtn.addEventListener('click', () => {
 openMenu();
 });
 overlay.addEventListener('click', function overlayEvt() {
 if (burgerBtn.classList.contains('nav__btn--active')) {
-  openMenu();
+openMenu();
 } else {
-  overlay.removeEventListener('click', overlayEvt());
+overlay.removeEventListener('click', overlayEvt());
 }
 });
-links.forEach(elem => {
-  elem.addEventListener('click', function linkOnClick(event) {
-    if (burgerBtn.classList.contains('nav__btn--active')) {
-      // event.preventDefault();
-      openMenu();
-    } else {
-      elem.removeEventListener('click', linkOnClick(event));
+linksContainer.addEventListener('click', function addActiveElem(event) {
+let link = event.target.parentNode;
+if (link.classList.contains('nav__item')) {
+let activeElem = this.querySelector('.nav__item--active');
+if (activeElem) {
+  activeElem.classList.remove('nav__item--active');
+}
+link.classList.add('nav__item--active');
+}
+if (event.target.matches('a')) {
+if (burgerBtn.classList.contains('nav__btn--active')) {
+  openMenu();
+} else {
+  linksContainer.removeEventListener('click', addActiveElem(event));
+}
+}
+});
+window.addEventListener('scroll', () => {
+  if (this.scrollY === 0) {
+    if (!(linksContainer.firstElementChild.classList.contains('nav__item--active'))) {
+      for (let i = 0; i < links.length; i++) {
+        links[i].classList.remove('nav__item--active');
+      }
+      linksContainer.firstElementChild.classList.add('nav__item--active');
     }
-  });
-})
+}
+});
 
 // Pagination functionality
 const initobj = [];
@@ -191,7 +208,7 @@ function createCardTemplate(arr) {
 
     return randomPetsArr.reduce((acc, curr) => {
         return acc + `
-        <div class="pet our-pets__item" id="${curr.id}" onclick="createPopUp(${curr.id})">
+        <div class="pet our-friends__item" id="${curr.id}" onclick="createPopUp(${curr.id})">
           <img
             src="${curr.img}"
             alt="${curr.name}"
@@ -369,13 +386,11 @@ function createPopUp(id) {
   popupOverlay.classList.remove('pop-up-overlay--off');
   body.classList.add('stop-scroll');
   popUpContainer.innerHTML = createPopUpTemplate(petBio);
-  popUpContainer.classList.remove('pop-up--hidden');
 }
 
 function closePopup() {
   popupOverlay.classList.add('pop-up-overlay--off');
   body.classList.remove('stop-scroll');
-  popUpContainer.classList.add('pop-up--hidden');
   popUpContainer.innerHTML = '';
 }
 

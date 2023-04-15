@@ -350,6 +350,9 @@
 .our-pets .our-pets__item {
   flex-shrink: 0;
 }
+.our-pets .our-pets__item:hover {
+  cursor: url("./assets/img/icon.svg"), pointer;
+}
 .our-pets .our-pets__btn {
   background-image: url("./assets/img/Arrow.svg");
   background-position: center;
@@ -419,7 +422,7 @@
       left: -620px;
     }
     to {
-      left: -1280px;
+      left: -1240px;
     }
   }
   @keyframes move-left {
@@ -447,12 +450,13 @@
     overflow: hidden;
   }
   .our-pets .our-pets__slider-extra-wrapper {
-    max-width: 290px;
+    max-width: 270px;
     padding-top: 0;
     padding-bottom: 0;
   }
   .our-pets .our-pets__slider {
-    left: -290px;
+    left: -295px;
+    column-gap: 25px;
   }
   .our-pets .our-pets__btn:first-child {
     order: 2;
@@ -462,15 +466,15 @@
   }
   @keyframes move-right {
     from {
-      left: -290px;
+      left: -295px;
     }
     to {
-      left: -580px;
+      left: -590px;
     }
   }
   @keyframes move-left {
     from {
-      left: -290px;
+      left: -295px;
     }
     to {
       left: 0;
@@ -771,8 +775,7 @@
   position: relative;
   display: block;
   z-index: 5;
-  opacity: 1;
-  transform: scale(1);
+  animation: fadeIn 0.5s ease both;
 }
 .pop-up .pop-up__wrapper {
   width: 100%;
@@ -835,6 +838,16 @@
   right: -42px;
   top: -52px;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 @media screen and (max-width: 992px) {
   .pop-up {
@@ -858,12 +871,6 @@
     margin-bottom: 6px;
   }
 }
-.pop-up.pop-up--hidden {
-  opacity: 0;
-  transform: scale(0.5);
-  transition: scale 0.7s ease-in-out;
-}
-
 @media screen and (max-width: 767px) {
   .pop-up {
     max-width: 240px;
@@ -1101,6 +1108,10 @@ h1, h2, h3, h4 {
 }
 .overlay.overlay--off {
   display: none;
+}
+
+.pet:hover {
+  cursor: url("./assets/img/icon.svg"), pointer;
 }
 
 @font-face {

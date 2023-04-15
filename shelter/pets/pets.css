@@ -20,7 +20,7 @@
   grid-column-gap: 40px;
   grid-row-gap: 30px;
 }
-.our-friends .our-friends__list .our-pets__item:hover {
+.our-friends .our-friends__item:hover {
   cursor: url("../assets/img/icon.svg"), pointer;
 }
 .our-friends .our-friends__pagination-wrapper {
@@ -513,14 +513,7 @@
   position: relative;
   display: block;
   z-index: 5;
-  opacity: 1;
-  transform: scale(1);
-  transition: all 0.7s ease-in-out;
-}
-.pop-up .pop-up--hidden {
-  opacity: 0;
-  transform: scale(0.5);
-  transition: all 0.7s ease-out;
+  animation: fadeIn 0.5s ease both;
 }
 .pop-up .pop-up__wrapper {
   width: 100%;
@@ -582,6 +575,16 @@
   position: absolute;
   right: -42px;
   top: -52px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media screen and (max-width: 992px) {

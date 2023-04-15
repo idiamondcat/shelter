@@ -18,14 +18,7 @@
     position: relative;
     display: block;
     z-index: 5;
-    opacity: 1;
-    transform: scale(1);
-    // transition: all 0.7s ease-in-out;
-    // &.pop-up--hidden {
-    //     opacity: 0;
-    //     transform: scale(0.5);
-    //     transition: all 0.7s ease-out;
-    // }
+    animation: fadeIn .5s ease both;
     & .pop-up__wrapper {
         width: 100%;
         height: 100%;
@@ -91,6 +84,16 @@
         right: -42px;
         top: -52px;
     }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
 }
 @media screen and (max-width: 992px) {
     .pop-up {
@@ -118,11 +121,6 @@
             }
         }
     }
-}
-.pop-up.pop-up--hidden {
-    opacity: 0;
-    transform: scale(0.5);
-    transition: scale 0.7s ease-in-out;
 }
 @media screen and (max-width: 767px) {
     .pop-up {
