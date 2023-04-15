@@ -1,0 +1,172 @@
+@import '../abstracts/variables';
+@import '../abstracts/colors';
+@import '../abstracts/mixins';
+
+@import '../layouts/our-friends';
+@import '../layouts/header';
+@import '../layouts/footer';
+
+@import '../components/btns';
+@import '../components/pet-card';
+@import '../components/popup';
+
+html {
+    scroll-behavior: smooth;
+    min-width: 320px;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    height: 100%;
+    min-width: 320px;
+    margin: 0;
+    @include main-text;
+    background: $bg-color;
+    cursor: url('../assets/img/pointer_cursor.svg'), default;
+
+    &.stop-scroll {
+        overflow: hidden;
+    }
+}
+p {
+    margin: 0;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+img {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4 {
+    margin: 0;
+}
+.container {
+    max-width: 80rem;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+.white-space {
+    display: block;
+    height: 0;
+    width: 0;
+}
+.overlay {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(41, 41, 41, 0.6);
+    z-index: 1;
+
+    &.overlay--off {
+        display: none;
+    }
+}
+@font-face {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/ArialMT.woff') format('woff'),
+    url('../assets/fonts/arialmt.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/Georgia.woff') format('woff'),
+    url('../assets/fonts/georgia.ttf') format('truetype');
+}
+.title {
+    @include title;
+}
+.subtitle {
+    @include subtitle;
+}
+.note {
+    @include note;
+}
+.pets__header {
+    background-color: $bg-color;
+
+    & .logo__title {
+        color: $title-color;
+    }
+    & .logo__text {
+        color: $font-color-logo-dark;
+    }
+    .nav {
+        & .nav__list  {
+            background-color: $bg-color;
+        }
+        & .nav__btn {
+            & .nav__btn-line {
+                background-color: $font-color-black;
+            }
+            &::before {
+                background-color: $font-color-black;
+            }
+            &::after {
+                background-color: $font-color-black;
+            }
+        }
+        & .nav__link {
+            color: $title-color;
+            &:hover {
+                cursor: url('../assets/img/icon.svg'), pointer;
+                color: $font-color-logo-dark;
+            }
+            &:active, &:focus {
+                color: $font-color-logo-dark;
+            }
+        }
+    }
+}
+.pets__footer {
+    background: url('../assets/img/noise-background.png'), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+    & .footer__link {
+        &:hover {
+            cursor: url('../assets/img/icon.svg'), pointer;
+        }
+    }
+}
+.second-btn {
+    &:hover {
+        cursor: url('../assets/img/icon.svg'), pointer;
+    }
+}
+@media screen and (max-width: 992px) {
+    .container {
+        max-width: 992px;
+        padding: 0 30px;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 390px) {
+    .container {
+        max-width: none;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin: 0 auto;
+    }
+    .title {
+        @include title-mobile;
+        text-align: center;
+    }
+    .subtitle {
+        @include subtitle-mobile;
+    }
+    .text {
+        text-align: justify;
+    }
+}

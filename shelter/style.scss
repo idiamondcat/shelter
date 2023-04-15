@@ -1,0 +1,127 @@
+@import 'abstracts/variables';
+@import 'abstracts/colors';
+@import 'abstracts/mixins';
+
+@import 'layouts/header';
+@import 'layouts/main-banner';
+@import 'layouts/about';
+@import 'layouts/our-pets';
+@import 'layouts/donation';
+@import 'layouts/help';
+@import 'layouts/footer';
+
+@import 'components/popup';
+@import 'components/btns';
+@import 'components/pet-card';
+
+html {
+    scroll-behavior: smooth;
+    min-width: 320px;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    height: 100%;
+    min-width: 320px;
+    margin: 0;
+    @include main-text;
+    background: url('./assets/img/noise-background.png'),
+    radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+    cursor: url('./assets/img/pointer_cursor.svg'), default;
+
+    &.stop-scroll {
+        overflow: hidden;
+    }
+}
+p {
+    margin: 0;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+img {
+    width: 100%;
+    height: auto;
+    vertical-align: top;
+}
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4 {
+    margin: 0;
+}
+.container {
+    max-width: 80rem;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+.white-space {
+    display: block;
+    height: 0;
+    width: 0;
+}
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(41, 41, 41, 0.6);
+    z-index: 1;
+
+    &.overlay--off {
+        display: none;
+    }
+}
+@font-face {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./assets/fonts/ArialMT.woff') format('woff'),
+    url('./assets/fonts/arialmt.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./assets/fonts/Georgia.woff') format('woff'),
+    url('./assets/fonts/georgia.ttf') format('truetype');
+}
+.title {
+    @include title;
+}
+.subtitle {
+    @include subtitle;
+}
+.note {
+    @include note;
+}
+@media screen and (max-width: 992px) {
+    .container {
+        max-width: 992px;
+        padding: 0 30px;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 390px) {
+    .container {
+        max-width: none;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin: 0 auto;
+    }
+    .title {
+        @include title-mobile;
+        text-align: center;
+    }
+    .subtitle {
+        @include subtitle-mobile;
+    }
+    .text {
+        text-align: justify;
+    }
+}
